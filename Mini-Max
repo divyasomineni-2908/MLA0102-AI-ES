@@ -1,0 +1,20 @@
+Algorithm MINIMAX(depth, node, isMax, values):
+
+1. If depth equals MAX_DEPTH:
+      Return values[node]
+
+2. If isMax is TRUE:
+      a. Set best ← −∞
+      b. For each child i of node:
+            i.   value ← MINIMAX(depth + 1, node × 2 + i, FALSE, values)
+            ii.  best ← maximum(best, value)
+      c. Return best
+
+3. Else (isMax is FALSE):
+      a. Set best ← +∞
+      b. For each child i of node:
+            i.   value ← MINIMAX(depth + 1, node × 2 + i, TRUE, values)
+            ii.  best ← minimum(best, value)
+      c. Return best
+
+4. End
