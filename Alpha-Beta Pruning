@@ -1,0 +1,26 @@
+Algorithm ALPHA_BETA(depth, node, alpha, beta, isMax, values):
+
+1. If depth equals MAX_DEPTH:
+      Return values[node]
+
+2. If isMax is TRUE:        // MAX player
+      a. best ← −∞
+      b. For each child i of node:
+            i.   value ← ALPHA_BETA(depth + 1, node × 2 + i, alpha, beta, FALSE, values)
+            ii.  best ← maximum(best, value)
+            iii. alpha ← maximum(alpha, best)
+            iv.  If beta ≤ alpha:
+                     Break   // Prune remaining branches
+      c. Return best
+
+3. Else (isMax is FALSE):   // MIN player
+      a. best ← +∞
+      b. For each child i of node:
+            i.   value ← ALPHA_BETA(depth + 1, node × 2 + i, alpha, beta, TRUE, values)
+            ii.  best ← minimum(best, value)
+            iii. beta ← minimum(beta, best)
+            iv.  If beta ≤ alpha:
+                     Break   // Prune remaining branches
+      c. Return best
+
+4. End
