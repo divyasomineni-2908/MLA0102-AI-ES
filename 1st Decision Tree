@@ -1,0 +1,45 @@
+Algorithm ID3(Data, Features):
+
+1. Let Labels = class labels in Data
+
+2. If all Labels are the same:
+      Return that label
+
+3. If Features list is empty:
+      Return the majority label in Data
+
+4. For each feature F in Features:
+      Compute InformationGain(Data, F)
+
+5. Select feature BestFeature with highest Information Gain
+
+6. Create a decision tree node with BestFeature
+
+7. For each value v of BestFeature:
+      a. Create subset Sv where BestFeature = v
+      b. If Sv is empty:
+            Add a leaf node with majority label
+      c. Else:
+            Add subtree:
+            ID3(Sv, Features − {BestFeature})
+
+8. Return the tree
+
+Function Entropy(Labels):
+
+1. Count occurrences of each class label
+2. For each label probability p:
+      Compute −p × log2(p)
+3. Sum all values
+4. Return entropy
+
+Function InformationGain(Data, Feature):
+
+1. Compute entropy of whole dataset
+2. Split Data by Feature values
+3. Compute weighted entropy of splits
+4. Information Gain =
+      Total Entropy − Weighted Entropy
+5. Return Information Gain
+
+
